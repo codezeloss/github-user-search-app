@@ -1,0 +1,85 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  gap: 37px;
+}
+
+.user img {
+  width: 117px;
+  height: 117px;
+  border-radius: 100%;
+}
+
+.userAll {
+  width: 100%;
+}
+
+.username {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 3px;
+}
+
+.username h1 {
+  font-size: 26px;
+}
+
+.username p {
+  font-size: 15px;
+}
+
+.userTag {
+  font-size: 16px;
+  color: #0079ff;
+  text-decoration: none;
+}
+
+.bio {
+  color: #ffff;
+  font-size: 15px;
+}
+
+.bioMrg {
+  margin-top: 20px;
+}
+
+/* no-bio */
+.noBio {
+  color: #a2a2a2;
+}
+
+@media only screen and (max-width: 758px) {
+  .username {
+    width: fit-content;
+    flex-direction: column;
+  }
+
+  .username p {
+    margin-bottom: 4px;
+  }
+
+  .username h1 {
+    font-size: 26px;
+    margin-bottom: 2px;
+    width: -moz-available;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .user img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .user {
+    flex-direction: column;
+  }
+
+  .username p {
+    width: 100%;
+  }
+}

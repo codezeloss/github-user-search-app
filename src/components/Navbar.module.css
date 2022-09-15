@@ -1,0 +1,55 @@
+.navbar {
+  width: 730px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar span {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.mode {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.navbar p {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.navbar img {
+  width: 20px;
+  height: 20px;
+}
+
+.navbarLight {
+  color: #222731;
+}
+
+.navbarLight span {
+  color: #222731;
+}
+
+.navbarLight p {
+  color: #222731;
+}
+
+@media only screen and (max-width: 758px) {
+  .navbar {
+    width: 537px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .navbar {
+    width: 327px;
+  }
+}

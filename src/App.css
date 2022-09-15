@@ -1,0 +1,36 @@
+/* ---------> font:  Space Mono */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+/* ---------> colors: */
+/* ---> LIGHT MODE COLORS
+   1-- #0079FF
+   2-- #697C9A
+   3-- #4B6A9B
+   4-- #2B3442
+   5-- #F6F8FF
+   6-- #FEFEFE
+
+   ---> DARK MODE COLORS
+   1-- #0079FF
+   2-- #FFFFFF
+   3-- #141D2F
+   4-- #1E2A47
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #141d2f;
+  font-family: "Space Mono", monospace;
+  color: #ffffff;
+  /* TO DELETE LATER */
+  font-size: 15px;
+}
