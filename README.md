@@ -1,6 +1,6 @@
 # Frontend Mentor - GitHub user search app
 
-App Live : [link]('https://aesthetic-maamoul-737009.netlify.app/')
+App Live : [link](https://aesthetic-maamoul-737009.netlify.app/)
 
 ![Design preview for the GitHub user search app coding challenge](./preview.jpg)
 
