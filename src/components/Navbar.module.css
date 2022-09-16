@@ -17,6 +17,7 @@
   flex-direction: row;
   gap: 16px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .navbar p {
