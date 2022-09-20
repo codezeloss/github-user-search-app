@@ -1,8 +1,14 @@
+import { useContext } from "react";
+import { AppContext } from "../../App";
 import eloss from "../../assets/eloss.jpg";
 
 import classes from "./Usernames.module.css";
 
-const Usernames = ({ avatar, name, created, login, bio, url }) => {
+const Usernames = () => {
+  const {
+    userData: { avatar, name, created, login, bio, url },
+  } = useContext(AppContext);
+
   return (
     <div className={classes.user}>
       <img src={avatar} alt="user avatar" />

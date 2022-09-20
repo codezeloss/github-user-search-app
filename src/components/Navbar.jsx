@@ -1,15 +1,22 @@
+import { useContext } from "react";
+// import { AppContext } from "../App";
+
 import sunIcon from "../assets/sunIcon.svg";
 import moonIcon from "../assets/moonIcon.svg";
 
 import classes from "./Navbar.module.css";
+import { AppContext } from "../App";
 
-const Navbar = (props) => {
+const Navbar = () => {
+  const { setBodyLight, setThemeLight, themeLight, bodyLight } =
+    useContext(AppContext);
+
   const switchModeHandler = () => {
-    props.setThemeLight((prevState) => !prevState);
-    props.setBodyLight((prevState) => !prevState);
+    setThemeLight((prevState) => !prevState);
+    setBodyLight((prevState) => !prevState);
   };
 
-  if (props.bodyLight === true) {
+  if (bodyLight === true) {
     document.body.style.backgroundColor = "#F6F8FF";
   } else {
     document.body.style.backgroundColor = "#141d2f";
@@ -18,7 +25,7 @@ const Navbar = (props) => {
   return (
     <div
       className={
-        !props.isLight
+        !themeLight
           ? classes.navbar
           : `${classes.navbar} + ${classes.navbarLight}`
       }
@@ -26,11 +33,11 @@ const Navbar = (props) => {
       <span>devfinder</span>
 
       <div className={classes.mode} onClick={switchModeHandler}>
-        <p>{!props.isLight ? "Light" : "Dark"}</p>
+        <p>{!themeLight ? "Light" : "Dark"}</p>
 
-        {!props.isLight && <img src={sunIcon} alt="Light/Dark mode" />}
+        {!themeLight && <img src={sunIcon} alt="Light/Dark mode" />}
 
-        {props.isLight && <img src={moonIcon} alt="Light/Dark mode" />}
+        {themeLight && <img src={moonIcon} alt="Light/Dark mode" />}
       </div>
     </div>
   );

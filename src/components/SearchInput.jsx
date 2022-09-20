@@ -1,12 +1,23 @@
+import { useContext } from "react";
+import { AppContext } from "../App";
+
 import searchIcon from "../assets/searchIcon.svg";
 
 import classes from "./SearchInput.module.css";
 
-const SearchInput = (props) => {
+const SearchInput = () => {
+  const {
+    searchUser,
+    searchInputHandler,
+    searchUserHandler,
+    noResult,
+    themeLight,
+  } = useContext(AppContext);
+
   return (
     <div
       className={
-        !props.isLight
+        !themeLight
           ? classes.search
           : `${classes.searchLight} + ${classes.search}`
       }
@@ -19,13 +30,13 @@ const SearchInput = (props) => {
           id="username"
           name="username"
           placeholder="Search GitHub username…"
-          value={props.searchUser}
-          onChange={props.onEnterUser}
+          value={searchUser}
+          onChange={searchInputHandler}
         />
-        {props.noResult && <p className={classes.error}>No Results</p>}
+        {noResult && <p className={classes.error}>No Results</p>}
       </form>
 
-      <button type="button" onClick={props.searchUserHandler}>
+      <button type="button" onClick={searchUserHandler}>
         Search
       </button>
     </div>

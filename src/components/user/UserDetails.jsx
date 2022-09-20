@@ -4,17 +4,23 @@ import twitterIcon from "../../assets/twitterIcon.svg";
 import companyIcon from "../../assets/companyIcon.svg";
 
 import classes from "./UserDetails.module.css";
+import { useContext } from "react";
+import { AppContext } from "../../App";
 
-const UserDetail = ({
-  repos,
-  followers,
-  following,
-  location,
-  website,
-  twitter,
-  company,
-  isLight,
-}) => {
+const UserDetail = () => {
+  const {
+    userData: {
+      repos,
+      followers,
+      following,
+      location,
+      website,
+      twitter,
+      company,
+      isLight,
+    },
+  } = useContext(AppContext);
+
   return (
     <div className={classes.details}>
       <div

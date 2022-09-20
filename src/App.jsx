@@ -1,10 +1,13 @@
+import { createContext, useState, useEffect } from "react";
+
 import Card from "./components/UI/Card";
 import Navbar from "./components/Navbar";
 import SearchInput from "./components/SearchInput";
 import UserInfosCard from "./components/UserInfosCard";
 
 import "./App.css";
-import { useEffect, useState } from "react";
+
+export const AppContext = createContext();
 
 function App() {
   const [themeLight, setThemeLight] = useState(false);
@@ -43,6 +46,7 @@ function App() {
       date.getDate() + " " + month[date.getMonth()] + " " + date.getFullYear();
 
     data.created_at = finalDate;
+
     setUser(data);
   };
 
@@ -61,37 +65,46 @@ function App() {
     setNoResult(false);
   };
 
+  //
+  const userData = {
+    avatar: user.avatar_url,
+    login: user.login,
+    name: user.name,
+    created: user.created_at,
+    bio: user.bio,
+    repos: user.public_repos,
+    followers: user.followers,
+    following: user.following,
+    location: user.location,
+    website: user.blog,
+    twitter: user.twitter_username,
+    company: user.company,
+    url: user.html_url,
+    isLight: themeLight,
+  };
+
+  // CONTEXT --->
+  const appContext = {
+    searchUser,
+    themeLight,
+    setThemeLight,
+    bodyLight,
+    setBodyLight,
+    user,
+    noResult,
+    searchInputHandler,
+    searchUserHandler,
+    userData,
+  };
+  //
+
   return (
     <Card>
-      <Navbar
-        setBodyLight={setBodyLight}
-        setThemeLight={setThemeLight}
-        isLight={themeLight}
-        bodyLight={bodyLight}
-      />
-      <SearchInput
-        searchUser={searchUser}
-        onEnterUser={searchInputHandler}
-        searchUserHandler={searchUserHandler}
-        noResult={noResult}
-        isLight={themeLight}
-      />
-      <UserInfosCard
-        avatar={user.avatar_url}
-        login={user.login}
-        name={user.name}
-        created={user.created_at}
-        bio={user.bio}
-        repos={user.public_repos}
-        followers={user.followers}
-        following={user.following}
-        location={user.location}
-        website={user.blog}
-        twitter={user.twitter_username}
-        company={user.company}
-        url={user.html_url}
-        isLight={themeLight}
-      />
+      <AppContext.Provider value={appContext}>
+        <Navbar />
+        <SearchInput />
+        <UserInfosCard />
+      </AppContext.Provider>
     </Card>
   );
 }
