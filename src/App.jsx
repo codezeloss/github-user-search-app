@@ -58,6 +58,13 @@ function App() {
   const searchInputHandler = (e) => {
     setSearchUser(e.target.value);
   };
+  // When user press Enter
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchUserHandler();
+    }
+  };
 
   //
   const searchUserHandler = () => {
@@ -93,6 +100,7 @@ function App() {
     user,
     noResult,
     searchInputHandler,
+    handleKeyDown,
     searchUserHandler,
     userData,
   };

@@ -9,6 +9,7 @@ const SearchInput = () => {
   const {
     searchUser,
     searchInputHandler,
+    handleKeyDown,
     searchUserHandler,
     noResult,
     themeLight,
@@ -32,6 +33,7 @@ const SearchInput = () => {
           placeholder="Search GitHub username…"
           value={searchUser}
           onChange={searchInputHandler}
+          onKeyDown={handleKeyDown}
         />
         {noResult && <p className={classes.error}>No Results</p>}
       </form>

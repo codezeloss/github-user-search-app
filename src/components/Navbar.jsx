@@ -1,5 +1,4 @@
 import { useContext } from "react";
-// import { AppContext } from "../App";
 
 import sunIcon from "../assets/sunIcon.svg";
 import moonIcon from "../assets/moonIcon.svg";

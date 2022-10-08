@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { AppContext } from "../../App";
-import eloss from "../../assets/eloss.jpg";
 
 import classes from "./Usernames.module.css";
 
 const Usernames = () => {
   const {
-    userData: { avatar, name, created, login, bio, url },
+    userData: { avatar, name, created, login, bio, url, isLight },
   } = useContext(AppContext);
 
   return (
@@ -26,7 +25,11 @@ const Usernames = () => {
         </div>
 
         <div className={classes.bioMrg}>
-          <p className={bio ? classes.bio : classes.noBio}>
+          <p
+            className={
+              bio ? (!isLight ? classes.bio : classes.bioLight) : classes.noBio
+            }
+          >
             {bio ? bio : "This profile has no bio"}
           </p>
         </div>
